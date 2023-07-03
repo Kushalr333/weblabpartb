@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <body>
+            <script>
+function bookFlight() {
+            return new Promise((resolve, reject) => {
+                const isFlightBooked = prompt("Did you book the flight? (Enter 'yes' or 'no')");
+
+                if (isFlightBooked.toLowerCase() === "yes") {
+                    resolve("Flight booked successfully.");
+                } else {
+                    alert("Flight booking failed.");
+                }
+                if (isFlightBooked.toLowerCase() === "no"){
+                    alert("without booking the flight you cannot book hotle");
+                }
+            });
+        }
+
+        function bookHotel() {
+            return new Promise((resolve, reject) => {
+                const isHotelBooked = prompt("Did you book the hotel? (Enter 'yes' or 'no')");
+
+                if (isHotelBooked.toLowerCase() === "yes") {
+                    resolve("Hotel booked successfully.");
+                } else {
+                    alert("Hotel booking failed.");
+                }
+            });
+        }
+
+        bookFlight()
+            .then(result => {
+                document.write(result);
+                return bookHotel();
+            })
+            .then(result => {
+                document.write(result);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+</script>
+        </body>
+    </head>
+</html>

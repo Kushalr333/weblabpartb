@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <body>
+            <script>
+
+// Check if the Geolocation API is supported by the browser
+if ("geolocation" in navigator) {
+  // Get the current position
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      // Get latitude and longitude from the position object
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      
+      console.log("Latitude:", latitude);
+      console.log("Longitude:", longitude);
+    },
+    function(error) {
+      console.log("Error:", error.message);
+    }
+  );
+} else {
+  console.log("Geolocation is not supported by your browser");
+}
+
+</script>
+</body>
+</head>
+</html>  
